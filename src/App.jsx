@@ -3,6 +3,7 @@ import PokemonList from "./pages/PokemonList";
 import Favorites from "./pages/Favorites";
 import PokemonDetails from "./pages/PokemonDetails";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/PokemonDetails" element={<PokemonDetails />}></Route>
         <Route path="/Favorites" element={<Favorites />}></Route>
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }
