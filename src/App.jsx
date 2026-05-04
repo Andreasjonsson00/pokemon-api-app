@@ -21,7 +21,7 @@ function App() {
             <Route path="/PokemonDetails" element={<PokemonDetails />}></Route>
             <Route
               path="/Favorites"
-              element={<Favorites favorites={favorites} />}
+              element={<Favorites favorites={favorites} setFavorites={setFavorites} />}
             ></Route>
           </Routes>
         </main>
