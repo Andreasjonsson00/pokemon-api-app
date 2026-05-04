@@ -4,17 +4,25 @@ import Favorites from "./pages/Favorites";
 import PokemonDetails from "./pages/PokemonDetails";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import { useState } from "react";
 
 function App() {
+  const [favorites, setFavorites] = useState([]);
   return (
     <BrowserRouter>
       <div className="min-h-screen flex flex-col">
         <Header />
         <main className="flex-1">
           <Routes>
-            <Route path="/" element={<Home />}></Route>
+            <Route
+              path="/"
+              element={<Home setFavorites={setFavorites} />}
+            ></Route>
             <Route path="/PokemonDetails" element={<PokemonDetails />}></Route>
-            <Route path="/Favorites" element={<Favorites />}></Route>
+            <Route
+              path="/Favorites"
+              element={<Favorites favorites={favorites} />}
+            ></Route>
           </Routes>
         </main>
         <Footer />
