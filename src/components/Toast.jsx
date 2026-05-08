@@ -9,7 +9,7 @@ const Toast = ({ toast }) => {
   }
 
   return (
-    <div className="pointer-events-none fixed right-4 top-32 z-50 w-[calc(100%-2rem)] max-w-sm sm:right-6 sm:top-36">
+    <div className="pointer-events-none fixed right-4 top-50 z-50 w-[calc(100%-2rem)] max-w-sm sm:right-6 sm:top-36">
       <div
         className={`rounded-lg border px-4 py-3 text-left text-xs shadow-xl ${toastStyles[toast.tone]}`}
       >
