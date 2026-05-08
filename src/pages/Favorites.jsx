@@ -1,8 +1,8 @@
 import Pokemon from "../components/Pokemon";
 
-const Favorites = ({ favorites, setFavorites }) => {
+const Favorites = ({ favorites, onSetFavorites }) => {
   const removeFavorite = (pokemon) => {
-    setFavorites((prev) => prev.filter((p) => p.name !== pokemon.name));
+    onSetFavorites((prev) => prev.filter((p) => p.name !== pokemon.name));
   };
 
   return (

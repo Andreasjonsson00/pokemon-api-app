@@ -9,13 +9,12 @@ import { useState } from "react";
 function App() {
   const [favorites, setFavorites] = useState([]);
 
-   const addFavorite = (pokemon) => {
+  const addFavorite = (pokemon) => {
     setFavorites((prev) => {
       if (prev.find((p) => p.id === pokemon.id)) return prev;
       return [...prev, pokemon];
     });
   };
-
 
   return (
     <BrowserRouter>
@@ -25,13 +24,17 @@ function App() {
           <Routes>
             <Route
               path="/"
-              element={<Home setFavorites={setFavorites} addFavorite={addFavorite} />}
+              element={<Home onAddFavorite={addFavorite} />}
             ></Route>
             <Route path="/pokemon/:id" element={<PokemonDetails />}></Route>
             <Route
               path="/Favorites"
               element={
-                <Favorites favorites={favorites} setFavorites={setFavorites} onAddFavorite={addFavorite} />
+                <Favorites
+                  favorites={favorites}
+                  onSetFavorites={setFavorites}
+                  onAddFavorite={addFavorite}
+                />
               }
             ></Route>
           </Routes>
