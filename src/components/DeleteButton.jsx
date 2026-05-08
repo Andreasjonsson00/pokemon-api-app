@@ -2,9 +2,9 @@ const DeleteButton = ({ onRemoveFavorite, pokemon }) => {
   return (
     <button
       onClick={() => onRemoveFavorite(pokemon)}
-      className="text-xs hover:underline mt-2 bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600 hover:shadow-lg active:scale-90 active:-rotate-1 transition-all duration-150 cursor-pointer"
+      className="mt-2 inline-flex w-40 justify-center rounded bg-red-500 px-4 py-2 text-xs text-white transition-all duration-150 cursor-pointer hover:bg-red-600 hover:shadow-lg hover:underline active:scale-90 active:-rotate-1"
     >
-      x
+      Remove Favorite
     </button>
   );
 };

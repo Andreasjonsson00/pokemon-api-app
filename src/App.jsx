@@ -9,11 +9,19 @@ import { useState } from "react";
 function App() {
   const [favorites, setFavorites] = useState([]);
 
-  const addFavorite = (pokemon) => {
+  const addFavorite = (pokemon, nickname = "") => {
     setFavorites((prev) => {
       if (prev.find((p) => p.id === pokemon.id)) return prev;
-      return [...prev, pokemon];
+      return [...prev, { ...pokemon, nickname }];
     });
+  };
+
+  const updateFavoriteNickname = (pokemonId, nickname) => {
+    setFavorites((prev) =>
+      prev.map((pokemon) =>
+        pokemon.id === pokemonId ? { ...pokemon, nickname } : pokemon,
+      ),
+    );
   };
 
   const removeFavorite = (pokemon) => {
@@ -39,8 +47,10 @@ function App() {
               path="/pokemon/:id"
               element={
                 <PokemonDetails
+                  favorites={favorites}
                   onRemoveFavorite={removeFavorite}
                   onAddFavorite={addFavorite}
+                  onUpdateFavorite={updateFavoriteNickname}
                 />
               }
             ></Route>
@@ -50,7 +60,7 @@ function App() {
                 <Favorites
                   favorites={favorites}
                   onRemoveFavorite={removeFavorite}
-                  onAddFavorite={addFavorite}
+                  onUpdateFavorite={updateFavoriteNickname}
                 />
               }
             ></Route>
