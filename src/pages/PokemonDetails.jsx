@@ -1,28 +1,39 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getPokemonById } from "../api/dataApi";
-import FavoriteButton from "../components/FavoriteButton";
 import DeleteButton from "../components/DeleteButton";
+import FavoriteButton from "../components/FavoriteButton";
 
-const PokemonDetails = ({ onAddFavorite, onRemoveFavorite }) => {
+const PokemonDetails = ({ favorites, onAddFavorite, onRemoveFavorite }) => {
   const { id } = useParams();
   const [pokemon, setPokemon] = useState(null);
+  const [error, setError] = useState(null);
+  const favorite = favorites.find((item) => item.id === Number(id));
 
   useEffect(() => {
     const fetchPokemon = async () => {
-      const data = await getPokemonById(id);
-      setPokemon(data);
+      try {
+        setError(null);
+        const data = await getPokemonById(id);
+        setPokemon(data);
+      } catch (err) {
+        setError(err.message);
+      }
     };
 
     fetchPokemon();
   }, [id]);
+
+  if (error) {
+    return <p>Error: {error}</p>;
+  }
 
   if (!pokemon) {
     return <p>Loading...</p>;
   }
 
   return (
-    <div className="p-5 flex flex-col border rounded-lg bg-white shadow-md mx-16 mt-6">
+    <div className="p-5 flex flex-col border rounded-lg bg-gray-100 shadow-md mx-16 mt-6">
       <div className="flex justify-center">
         <h1 className="text-2xl font-bold capitalize">{pokemon.name}</h1>
         <div className="flex ml-4 gap-2">
@@ -61,11 +72,11 @@ const PokemonDetails = ({ onAddFavorite, onRemoveFavorite }) => {
           ))}
         </div>
         <div className="flex justify-center gap-2 mt-4">
-          {onAddFavorite && (
+          {!favorite && onAddFavorite && (
             <FavoriteButton onAddFavorite={onAddFavorite} pokemon={pokemon} />
           )}
 
-          {onRemoveFavorite && (
+          {favorite && onRemoveFavorite && (
             <DeleteButton
               onRemoveFavorite={onRemoveFavorite}
               pokemon={pokemon}
