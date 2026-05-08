@@ -3,7 +3,10 @@ import { Link } from "react-router-dom";
 const Pokemon = ({ pokemon, onAddFavorite, onRemoveFavorite }) => {
   return (
     <div className="p-4 border rounded-lg bg-white shadow-md flex flex-col items-center transition transform hover:scale-105 hover:shadow-xl">
-      <Link to={`/pokemon/${pokemon.id}`} className="text-center">
+      <Link
+        to={`/pokemon/${pokemon.id}`}
+        className="text-center flex flex-col items-center"
+      >
         <img
           src={pokemon.sprites.front_default}
           alt={pokemon.name}
