@@ -56,6 +56,7 @@ function App() {
               path="/"
               element={
                 <Home
+                  favorites={favorites}
                   onAddFavorite={addFavorite}
                   onRemoveFavorite={removeFavorite}
                 />

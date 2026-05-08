@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import FavoriteButton from "./FavoriteButton";
 import DeleteButton from "./DeleteButton";
 
-const Pokemon = ({ pokemon, onAddFavorite, onRemoveFavorite, children }) => {
+const Pokemon = ({ pokemon, onAddFavorite, onRemoveFavorite, children, favorite }) => {
   return (
     <div className="flex min-h-[360px] w-full max-w-64 flex-col rounded-lg border bg-white p-4 shadow-md transition transform hover:scale-105 hover:shadow-xl">
       <Link
@@ -24,12 +24,16 @@ const Pokemon = ({ pokemon, onAddFavorite, onRemoveFavorite, children }) => {
       <div className="mt-auto">
         {children}
         <div className="mt-3 flex flex-col items-center gap-2">
-          {onAddFavorite && (
-            <FavoriteButton onAddFavorite={onAddFavorite} pokemon={pokemon} />
-          )}
-          {onRemoveFavorite && (
-            <DeleteButton onRemoveFavorite={onRemoveFavorite} pokemon={pokemon} />
-          )}
+         {!favorite && onAddFavorite && (
+                <FavoriteButton onAddFavorite={onAddFavorite} pokemon={pokemon} />
+              )}
+
+              {favorite && onRemoveFavorite && (
+                <DeleteButton
+                  onRemoveFavorite={onRemoveFavorite}
+                  pokemon={pokemon}
+                />
+              )}
         </div>
       </div>
     </div>
