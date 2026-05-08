@@ -19,7 +19,6 @@ const Favorites = ({ favorites, onRemoveFavorite, onUpdateFavorite }) => {
             >
               <NicknameForm
                 key={`${p.id}-${p.nickname ?? ""}`}
-                initialValue={p.nickname}
                 label={`nickname-${p.id}`}
                 submitLabel="Update nickname"
                 onSubmit={(nickname) => onUpdateFavorite(p.id, nickname)}

@@ -21,7 +21,7 @@ const Pokemon = ({ pokemon, onAddFavorite, onRemoveFavorite, children }) => {
           </p>
         ) : null}
       </Link>
-      {children}
+        {children}
       <div className="flex gap-2 mt-1">
         {onAddFavorite && (
           <FavoriteButton onAddFavorite={onAddFavorite} pokemon={pokemon} />
