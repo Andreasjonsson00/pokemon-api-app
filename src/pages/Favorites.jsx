@@ -6,11 +6,21 @@ const Favorites = ({ favorites, setFavorites }) => {
   };
 
   return (
-    <div className="flex flex-wrap justify-center gap-4 p-4">
-      {favorites.map((p) => (
-        <Pokemon key={p.name} pokemon={p} onRemoveFavorite={removeFavorite} />
-      ))}
-    </div>
+    <>
+      {favorites.length === 0 ? (
+        <p className="text-2xl font-bold mt-6">No favorites yet. Add some!</p>
+      ) : (
+        <div className="flex flex-wrap justify-center gap-4 p-4">
+          {favorites.map((p) => (
+            <Pokemon
+              key={p.name}
+              pokemon={p}
+              onRemoveFavorite={removeFavorite}
+            />
+          ))}
+        </div>
+      )}
+    </>
   );
 };
 

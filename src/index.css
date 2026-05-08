@@ -5,12 +5,13 @@
   --secondary-color: blue;
   --header-footer-color: #f0f0f0;
   --text-color: #333333;
+  font-family: "Arial", sans-serif;
 }
 
 body {
   background-color: var(--background-color);
   color: var(--text-color);
-  font-family: "Arial", sans-serif;
+  text-align: center;
 }
 
 footer {
@@ -21,6 +22,6 @@ footer {
 
 header {
   background-color: var(--secondary-color);
-  text-align: center;
   color: var(--header-footer-color);
+  text-align: center;
 }

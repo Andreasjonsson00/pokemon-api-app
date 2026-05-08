@@ -18,10 +18,12 @@ function App() {
               path="/"
               element={<Home setFavorites={setFavorites} />}
             ></Route>
-            <Route path="/PokemonDetails" element={<PokemonDetails />}></Route>
+            <Route path="/pokemon/:id" element={<PokemonDetails />}></Route>
             <Route
               path="/Favorites"
-              element={<Favorites favorites={favorites} setFavorites={setFavorites} />}
+              element={
+                <Favorites favorites={favorites} setFavorites={setFavorites} />
+              }
             ></Route>
           </Routes>
         </main>

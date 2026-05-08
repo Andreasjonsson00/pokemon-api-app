@@ -1,12 +1,16 @@
+import { Link } from "react-router-dom";
+
 const Pokemon = ({ pokemon, onAddFavorite, onRemoveFavorite }) => {
   return (
     <div className="p-4 border rounded-lg bg-white shadow-md flex flex-col items-center transition transform hover:scale-105 hover:shadow-xl">
+     <Link to={`/pokemon/${pokemon.id}`} className="text-center">
       <img
         src={pokemon.sprites.front_default}
         alt={pokemon.name}
         className="w-32 h-32"
       />
-      <h2 className="capitalize mt-2 text-center font-bold">{pokemon.name}</h2>
+      <h2 className="capitalize mt-2 font-bold">{pokemon.name}</h2>
+     </Link>
       {onAddFavorite && (
         <button
           onClick={() => onAddFavorite(pokemon)}
