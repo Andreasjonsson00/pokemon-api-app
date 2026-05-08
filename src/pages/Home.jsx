@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { getAllPokemon } from "../api/dataApi";
 import Pokemon from "../components/Pokemon";
 
-const Home = ({ onAddFavorite, onRemoveFavorite }) => {
+const Home = ({ favorites, onAddFavorite, onRemoveFavorite }) => {
   const [pokemon, setPokemon] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -40,6 +40,7 @@ const Home = ({ onAddFavorite, onRemoveFavorite }) => {
           <Pokemon
             key={p.id}
             pokemon={p}
+            favorite={favorites.some((favorite) => favorite.id === p.id)}
             onAddFavorite={onAddFavorite}
             onRemoveFavorite={onRemoveFavorite}
           />

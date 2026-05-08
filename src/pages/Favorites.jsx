@@ -19,6 +19,7 @@ const Favorites = ({ favorites, onRemoveFavorite, onUpdateFavorite }) => {
             <Pokemon
               key={p.name}
               pokemon={p}
+              favorite={true}
               onRemoveFavorite={onRemoveFavorite}
             >
               <NicknameForm

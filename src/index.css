@@ -71,4 +71,7 @@ header {
   body {
     background: var(--pokemon-container);
   }
+  .pokemon-container {
+    border: none;
+  }
 }
