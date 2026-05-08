@@ -31,9 +31,11 @@ const Home = ({ onAddFavorite, onRemoveFavorite }) => {
   }
 
   return (
-    <div>
-      <h1 className="text-2xl font-bold my-8">Add your Favorite Pokémon</h1>
-      <div className="pokemon-container mt-4 flex flex-wrap justify-center gap-4 border p-7 rounded-lg bg-gray-100 mx-5">
+    <div className="px-4 sm:px-5">
+      <h1 className="my-8 text-xl font-bold sm:text-2xl">
+        Add your Favorite Pokémon
+      </h1>
+      <div className="pokemon-container mt-4 flex flex-wrap justify-center gap-4 rounded-lg border bg-gray-100 p-4 sm:p-7">
         {pokemon.map((p) => (
           <Pokemon
             key={p.id}
@@ -43,7 +45,7 @@ const Home = ({ onAddFavorite, onRemoveFavorite }) => {
           />
         ))}
       </div>
-      <h2 className="text-2xl font-bold mt-8">Gotta catch 'em all!</h2>
+      <h2 className="mt-8 text-xl font-bold sm:text-2xl">Gotta catch 'em all!</h2>
     </div>
   );
 };
