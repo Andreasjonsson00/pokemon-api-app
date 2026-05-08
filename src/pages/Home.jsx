@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { getAllPokemon } from "../api/dataApi";
 import Pokemon from "../components/Pokemon";
 
-const Home = ({ onAddFavorite }) => {
+const Home = ({ onAddFavorite, onRemoveFavorite }) => {
   const [pokemon, setPokemon] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -38,7 +38,7 @@ const Home = ({ onAddFavorite }) => {
       </h1>
       <div className="pokemon-container mt-4 flex flex-wrap justify-center gap-4 border p-7 rounded-lg bg-gray-100 mx-16">
         {pokemon.map((p) => (
-          <Pokemon key={p.id} pokemon={p} onAddFavorite={onAddFavorite} />
+          <Pokemon key={p.id} pokemon={p} onAddFavorite={onAddFavorite} onRemoveFavorite={onRemoveFavorite} />
         ))}
       </div>
       <h2 className="text-2xl font-bold mt-8">
