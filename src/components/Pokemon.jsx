@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Pokemon = ({ pokemon, onAddFavorite, onRemoveFavorite }) => {
   return (
-    <div className="p-4 border rounded-lg bg-white shadow-md flex flex-col items-center transition transform hover:scale-105 hover:shadow-xl">
+    <div className="w-64 min-h-[250px] p-4 border rounded-lg bg-white shadow-md flex flex-col items-center justify-between transition transform hover:scale-105 hover:shadow-xl">
       <Link
         to={`/pokemon/${pokemon.id}`}
         className="text-center flex flex-col items-center"
@@ -12,7 +12,7 @@ const Pokemon = ({ pokemon, onAddFavorite, onRemoveFavorite }) => {
           alt={pokemon.name}
           className="w-32 h-32"
         />
-        <h2 className="capitalize mt-2 font-bold">{pokemon.name}</h2>
+        <h2 className="capitalize mt-2 fontscald">{pokemon.name}</h2>
       </Link>
       <div className="flex gap-2 mt-1">
         {onAddFavorite && (
