@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getPokemonById } from "../api/dataApi";
+import FavoriteButton from "../components/FavoriteButton";
 
 const PokemonDetails = ({ onAddFavorite, onRemoveFavorite }) => {
   const { id } = useParams();
@@ -60,12 +61,7 @@ const PokemonDetails = ({ onAddFavorite, onRemoveFavorite }) => {
         </div>
         <div className="flex justify-center gap-2 mt-4">
           {onAddFavorite && (
-            <button
-              onClick={() => onAddFavorite(pokemon)}
-              className="text-xs hover:underline mt-2 bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 hover:shadow-lg active:scale-90 active:rotate-1 transition-all duration-150 cursor-pointer"
-            >
-              Add to Favorites
-            </button>
+            <FavoriteButton onAddFavorite={onAddFavorite} pokemon={pokemon} />
           )}
 
           {onRemoveFavorite && (
