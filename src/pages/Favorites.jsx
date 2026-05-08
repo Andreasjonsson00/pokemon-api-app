@@ -14,7 +14,7 @@ const Favorites = ({ favorites, onRemoveFavorite, onUpdateFavorite }) => {
           No favorites yet. Add some!
         </p>
       ) : (
-        <div className="pokemon-container mt-4 flex flex-wrap justify-center gap-4 rounded-lg border bg-gray-100 p-4 shadow-md sm:p-7">
+        <div className="pokemon-container mt-4 flex flex-wrap justify-center gap-4 rounded-lg border p-4 shadow-md sm:p-7">
           {favorites.map((p) => (
             <Pokemon
               key={p.name}

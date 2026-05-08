@@ -37,7 +37,7 @@ const PokemonDetails = ({ favorites, onAddFavorite, onRemoveFavorite }) => {
       <h2 className="mt-8 mb-8 text-xl font-bold sm:text-2xl">
         Gotta catch 'em all!
       </h2>
-      <div className="flex flex-col mt-4 flex-wrap justify-center gap-4 rounded-lg border bg-gray-100 p-4 sm:p-7 m-5">
+      <div className="pokemon-container flex flex-col mt-4 flex-wrap justify-center gap-4 rounded-lg border p-4 sm:p-7 m-5">
         <div className="flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
           <h1 className="text-center text-xl font-bold capitalize sm:text-2xl">
             {pokemon.name}
