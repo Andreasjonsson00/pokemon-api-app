@@ -18,9 +18,21 @@ html {
 body {
   min-height: 100vh;
   background-image:
-    radial-gradient(circle at top left, rgba(59, 130, 246, 0.28), transparent 28%),
-    radial-gradient(circle at top right, rgba(239, 68, 68, 0.22), transparent 30%),
-    radial-gradient(circle at bottom center, rgba(250, 204, 21, 0.26), transparent 34%),
+    radial-gradient(
+      circle at top left,
+      rgba(59, 130, 246, 0.28),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at top right,
+      rgba(239, 68, 68, 0.22),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at bottom center,
+      rgba(250, 204, 21, 0.26),
+      transparent 34%
+    ),
     linear-gradient(180deg, #fff8cc 0%, #fde68a 52%, #fef3c7 100%);
   background-attachment: fixed;
   color: var(--text-color);
@@ -52,5 +64,11 @@ header {
 }
 
 .pokemon-container {
-   background-color: var(--pokemon-container);
+  background-color: var(--pokemon-container);
+}
+
+@media (max-width: 768px) {
+  body {
+    background: var(--pokemon-container);
+  }
 }
