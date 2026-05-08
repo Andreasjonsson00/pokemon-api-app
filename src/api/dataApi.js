@@ -19,3 +19,14 @@ export const getAllPokemon = async () => {
     });
   }
 };
+
+export const getPokemonById = async (id) => {
+  try {
+    const response = await apiClient.get(`/pokemon/${id}`);
+    return response.data;
+  } catch (error) {
+    throw new Error(`Failed to fetch pokemon: ${error.message}`, {
+      cause: error,
+    });
+  }
+};

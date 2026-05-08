@@ -14,7 +14,7 @@ const Pokemon = ({ pokemon, onAddFavorite, onRemoveFavorite }) => {
       {onAddFavorite && (
         <button
           onClick={() => onAddFavorite(pokemon)}
-          className="mt-2 bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-600 cursor-pointer"
+          className="hover:underline mt-2 bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-600 cursor-pointer"
         >
           Add to Favorites
         </button>
@@ -22,7 +22,7 @@ const Pokemon = ({ pokemon, onAddFavorite, onRemoveFavorite }) => {
       {onRemoveFavorite && (
         <button
           onClick={() => onRemoveFavorite(pokemon)}
-          className="mt-2 bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600 cursor-pointer"
+          className="hover:underline mt-2 bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600 cursor-pointer"
         >
           Remove from Favorites
         </button>
