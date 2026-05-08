@@ -1,16 +1,16 @@
 import { useState } from "react";
 
 const NicknameForm = ({
-  initialValue = "",
   label,
   submitLabel,
   onSubmit,
 }) => {
-  const [nickname, setNickname] = useState(initialValue);
+  const [nickname, setNickname] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
     onSubmit(nickname.trim());
+    setNickname("");
   };
 
   return (

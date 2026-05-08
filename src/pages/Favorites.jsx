@@ -3,14 +3,18 @@ import NicknameForm from "../components/NicknameForm";
 
 const Favorites = ({ favorites, onRemoveFavorite, onUpdateFavorite }) => {
   return (
-    <>
+    <div className="px-4 sm:px-5">
       {favorites.length > 0 ? (
-        <h1 className="text-2xl font-bold my-8">Your Favorite Pokémon</h1>
+        <h1 className="my-8 text-xl font-bold sm:text-2xl">
+          Your Favorite Pokémon
+        </h1>
       ) : null}
       {favorites.length === 0 ? (
-        <p className="text-2xl font-bold my-8">No favorites yet. Add some!</p>
+        <p className="my-8 text-xl font-bold sm:text-2xl">
+          No favorites yet. Add some!
+        </p>
       ) : (
-        <div className="pokemon-container mt-4 flex flex-wrap justify-center gap-4 border p-7 rounded-lg bg-gray-100 shadow-md mx-75">
+        <div className="pokemon-container mt-4 flex flex-wrap justify-center gap-4 rounded-lg border p-4 shadow-md sm:p-7">
           {favorites.map((p) => (
             <Pokemon
               key={p.name}
@@ -19,7 +23,6 @@ const Favorites = ({ favorites, onRemoveFavorite, onUpdateFavorite }) => {
             >
               <NicknameForm
                 key={`${p.id}-${p.nickname ?? ""}`}
-                initialValue={p.nickname}
                 label={`nickname-${p.id}`}
                 submitLabel="Update nickname"
                 onSubmit={(nickname) => onUpdateFavorite(p.id, nickname)}
@@ -28,7 +31,7 @@ const Favorites = ({ favorites, onRemoveFavorite, onUpdateFavorite }) => {
           ))}
         </div>
       )}
-    </>
+    </div>
   );
 };
 

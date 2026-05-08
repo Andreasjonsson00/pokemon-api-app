@@ -33,55 +33,64 @@ const PokemonDetails = ({ favorites, onAddFavorite, onRemoveFavorite }) => {
   }
 
   return (
-    <div className="p-5 flex flex-col border rounded-lg bg-gray-100 shadow-md mx-16 mt-6">
-      <div className="flex justify-center">
-        <h1 className="text-2xl font-bold capitalize">{pokemon.name}</h1>
-        <div className="flex ml-4 gap-2">
-          {pokemon.types.map((t) => (
-            <span
-              key={t.type.name}
-              className="bg-yellow-400 text-black px-3 py-1 rounded-full capitalize"
-            >
-              {t.type.name}
-            </span>
-          ))}
-        </div>
-      </div>
+    <div>
+      <h2 className="mt-8 mb-8 text-xl font-bold sm:text-2xl">
+        Gotta catch 'em all!
+      </h2>
+      <div className="pokemon-container mt-4 m-5 rounded-lg border p-4 sm:p-7">
+        <div className="mx-auto flex w-full max-w-md flex-col rounded-lg border bg-white p-5 shadow-md">
+          <div className="flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
+            <h1 className="text-center text-xl font-bold capitalize sm:text-2xl">
+              {pokemon.name}
+            </h1>
+            <div className="flex flex-wrap justify-center gap-2 sm:ml-4">
+              {pokemon.types.map((t) => (
+                <span
+                  key={t.type.name}
+                  className="rounded-full bg-yellow-400 px-3 py-1 text-black capitalize"
+                >
+                  {t.type.name}
+                </span>
+              ))}
+            </div>
+          </div>
 
-      <img
-        src={pokemon.sprites.front_default}
-        alt={pokemon.name}
-        className="mx-auto w-48 h-48"
-      />
+          <img
+            src={pokemon.sprites.front_default}
+            alt={pokemon.name}
+            className="mx-auto h-48 w-48"
+          />
 
-      <p className="text-xl">Height: {pokemon.height * 10} cm</p>
+          <p className="text-lg sm:text-xl">Height: {pokemon.height * 10} cm</p>
 
-      <p className="text-xl">Weight: {pokemon.weight / 10} kg</p>
+          <p className="text-lg sm:text-xl">Weight: {pokemon.weight / 10} kg</p>
 
-      <div className="mt-6 text-xl">
-        <h2 className="font-bold mb-2">Abilities</h2>
+          <div className="mt-6 text-lg sm:text-xl">
+            <h2 className="mb-2 font-bold">Abilities</h2>
 
-        <div className="flex justify-center gap-2 flex-wrap">
-          {pokemon.abilities.map((a) => (
-            <span
-              key={a.ability.name}
-              className="bg-blue-200 text-black px-3 py-1 rounded-full capitalize"
-            >
-              {a.ability.name}
-            </span>
-          ))}
-        </div>
-        <div className="flex justify-center gap-2 mt-4">
-          {!favorite && onAddFavorite && (
-            <FavoriteButton onAddFavorite={onAddFavorite} pokemon={pokemon} />
-          )}
+            <div className="flex flex-wrap justify-center gap-2">
+              {pokemon.abilities.map((a) => (
+                <span
+                  key={a.ability.name}
+                  className="rounded-full bg-blue-200 px-3 py-1 text-black capitalize"
+                >
+                  {a.ability.name}
+                </span>
+              ))}
+            </div>
+            <div className="mt-4 flex flex-col items-center gap-2 sm:flex-row sm:justify-center">
+              {!favorite && onAddFavorite && (
+                <FavoriteButton onAddFavorite={onAddFavorite} pokemon={pokemon} />
+              )}
 
-          {favorite && onRemoveFavorite && (
-            <DeleteButton
-              onRemoveFavorite={onRemoveFavorite}
-              pokemon={pokemon}
-            />
-          )}
+              {favorite && onRemoveFavorite && (
+                <DeleteButton
+                  onRemoveFavorite={onRemoveFavorite}
+                  pokemon={pokemon}
+                />
+              )}
+            </div>
+          </div>
         </div>
       </div>
     </div>

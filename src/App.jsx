@@ -4,10 +4,28 @@ import Favorites from "./pages/Favorites";
 import PokemonDetails from "./pages/PokemonDetails";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
+const FAVORITES_STORAGE_KEY = "pokemon-favorites";
 
 function App() {
-  const [favorites, setFavorites] = useState([]);
+  const [favorites, setFavorites] = useState(() => {
+    const savedFavorites = localStorage.getItem(FAVORITES_STORAGE_KEY);
+
+    if (!savedFavorites) {
+      return [];
+    }
+
+    try {
+      return JSON.parse(savedFavorites);
+    } catch {
+      return [];
+    }
+  });
+
+  useEffect(() => {
+    localStorage.setItem(FAVORITES_STORAGE_KEY, JSON.stringify(favorites));
+  }, [favorites]);
 
   const addFavorite = (pokemon, nickname = "") => {
     setFavorites((prev) => {
@@ -25,7 +43,7 @@ function App() {
   };
 
   const removeFavorite = (pokemon) => {
-    setFavorites((prev) => prev.filter((p) => p.name !== pokemon.name));
+    setFavorites((prev) => prev.filter((p) => p.id !== pokemon.id));
   };
 
   return (

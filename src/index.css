@@ -2,25 +2,55 @@
 @import "tailwindcss";
 
 :root {
-  --primary-color: #ff0000;
-  --secondary-color: blue;
-  --header-footer-color: #f0f0f0;
-  --text-color: #333333;
+  --header-background-color: linear-gradient(90deg, #2563eb 0%, #1d4ed8 100%);
+  --footer-background-color: linear-gradient(90deg, #ef4444 0%, #dc2626 100%);
+  --header-footer-text: #f8fafc;
+  --text-color: #000000;
+  --pokemon-container: #fef3c7;
   font-family: "Press Start 2P", cursive;
   text-align: center;
 }
 
+html {
+  min-height: 100%;
+}
+
 body {
-  background-color: var(--background-color);
+  min-height: 100vh;
+  background-image:
+    radial-gradient(circle at top left, rgba(59, 130, 246, 0.28), transparent 28%),
+    radial-gradient(circle at top right, rgba(239, 68, 68, 0.22), transparent 30%),
+    radial-gradient(circle at bottom center, rgba(250, 204, 21, 0.26), transparent 34%),
+    linear-gradient(180deg, #fff8cc 0%, #fde68a 52%, #fef3c7 100%);
+  background-attachment: fixed;
   color: var(--text-color);
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.2;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.35) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.35) 1px, transparent 1px);
+  background-size: 48px 48px;
 }
 
 footer {
-  background-color: var(--primary-color);
-  color: var(--header-footer-color);
+  background: var(--footer-background-color);
+  color: var(--header-footer-text);
+  box-shadow: 0 -10px 30px rgba(220, 38, 38, 0.18);
 }
 
 header {
-  background-color: var(--secondary-color);
-  color: var(--header-footer-color);
+  background: var(--header-background-color);
+  color: var(--header-footer-text);
+  box-shadow: 0 10px 30px rgba(37, 99, 235, 0.18);
+}
+
+.pokemon-container {
+   background-color: var(--pokemon-container);
 }
