@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import FavoriteButton from "./FavoriteButton";
+import DeleteButton from "./DeleteButton";
 
 const Pokemon = ({ pokemon, onAddFavorite, onRemoveFavorite }) => {
   return (
@@ -20,12 +21,7 @@ const Pokemon = ({ pokemon, onAddFavorite, onRemoveFavorite }) => {
           <FavoriteButton onAddFavorite={onAddFavorite} pokemon={pokemon} />
         )}
         {onRemoveFavorite && (
-          <button
-            onClick={() => onRemoveFavorite(pokemon)}
-            className="text-xs hover:underline mt-2 bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600 hover:shadow-lg active:scale-90 active:-rotate-1 transition-all duration-150 cursor-pointer"
-          >
-            x
-          </button>
+          <DeleteButton onRemoveFavorite={onRemoveFavorite} pokemon={pokemon} />
         )}
       </div>
     </div>
