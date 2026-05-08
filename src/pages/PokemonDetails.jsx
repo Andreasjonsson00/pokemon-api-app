@@ -21,7 +21,19 @@ const PokemonDetails = ({ onAddFavorite, onRemoveFavorite }) => {
 
   return (
     <div className="p-5 flex flex-col border rounded-lg bg-white shadow-md mx-16 mt-6">
-      <h1 className="text-2xl font-bold capitalize">{pokemon.name}</h1>
+      <div className="flex justify-center">
+        <h1 className="text-2xl font-bold capitalize">{pokemon.name}</h1>
+        <div className="flex ml-4 gap-2">
+          {pokemon.types.map((t) => (
+            <span
+              key={t.type.name}
+              className="bg-yellow-400 text-black px-3 py-1 rounded-full capitalize"
+            >
+              {t.type.name}
+            </span>
+          ))}
+        </div>
+      </div>
 
       <img
         src={pokemon.sprites.front_default}
@@ -32,19 +44,20 @@ const PokemonDetails = ({ onAddFavorite, onRemoveFavorite }) => {
       <p className="text-xl">Height: {pokemon.height * 10} cm</p>
 
       <p className="text-xl">Weight: {pokemon.weight / 10} kg</p>
-      <div className="text-xl">
-        <p className="font-bold">Types:</p>
-        <div className="flex justify-center gap-2 mt-2">
-          {pokemon.types.map((t) => (
+
+      <div className="mt-6 text-xl">
+        <h2 className="font-bold mb-2">Abilities</h2>
+
+        <div className="flex justify-center gap-2 flex-wrap">
+          {pokemon.abilities.map((a) => (
             <span
-              key={t.type.name}
-              className="bg-yellow-400 text-black px-3 py-1 rounded-full capitalize"
+              key={a.ability.name}
+              className="bg-blue-200 text-black px-3 py-1 rounded-full capitalize"
             >
-              {t.type.name}
+              {a.ability.name}
             </span>
           ))}
         </div>
-
         <div className="flex justify-center gap-2 mt-4">
           {onAddFavorite && (
             <button
