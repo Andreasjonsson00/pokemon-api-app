@@ -16,6 +16,10 @@ function App() {
     });
   };
 
+  const removeFavorite = (pokemon) => {
+    setFavorites((prev) => prev.filter((p) => p.name !== pokemon.name));
+  };
+
   return (
     <BrowserRouter>
       <div className="min-h-screen flex flex-col">
@@ -32,7 +36,7 @@ function App() {
               element={
                 <Favorites
                   favorites={favorites}
-                  onSetFavorites={setFavorites}
+                  onRemoveFavorite={removeFavorite}
                   onAddFavorite={addFavorite}
                 />
               }

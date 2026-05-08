@@ -1,10 +1,6 @@
 import Pokemon from "../components/Pokemon";
 
-const Favorites = ({ favorites, onSetFavorites }) => {
-  const removeFavorite = (pokemon) => {
-    onSetFavorites((prev) => prev.filter((p) => p.name !== pokemon.name));
-  };
-
+const Favorites = ({ favorites, onRemoveFavorite }) => {
   return (
     <>
       {favorites.length === 0 ? (
@@ -15,7 +11,7 @@ const Favorites = ({ favorites, onSetFavorites }) => {
             <Pokemon
               key={p.name}
               pokemon={p}
-              onRemoveFavorite={removeFavorite}
+              onRemoveFavorite={onRemoveFavorite}
             />
           ))}
         </div>
