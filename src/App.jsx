@@ -8,6 +8,18 @@ import { useState } from "react";
 
 function App() {
   const [favorites, setFavorites] = useState([]);
+
+  const addFavorite = (pokemon) => {
+    setFavorites((prev) => {
+      if (prev.find((p) => p.id === pokemon.id)) return prev;
+      return [...prev, pokemon];
+    });
+  };
+
+  const removeFavorite = (pokemon) => {
+    setFavorites((prev) => prev.filter((p) => p.name !== pokemon.name));
+  };
+
   return (
     <BrowserRouter>
       <div className="min-h-screen flex flex-col">
@@ -16,12 +28,31 @@ function App() {
           <Routes>
             <Route
               path="/"
-              element={<Home setFavorites={setFavorites} />}
+              element={
+                <Home
+                  onAddFavorite={addFavorite}
+                  onRemoveFavorite={removeFavorite}
+                />
+              }
             ></Route>
-            <Route path="/PokemonDetails" element={<PokemonDetails />}></Route>
+            <Route
+              path="/pokemon/:id"
+              element={
+                <PokemonDetails
+                  onRemoveFavorite={removeFavorite}
+                  onAddFavorite={addFavorite}
+                />
+              }
+            ></Route>
             <Route
               path="/Favorites"
-              element={<Favorites favorites={favorites} setFavorites={setFavorites} />}
+              element={
+                <Favorites
+                  favorites={favorites}
+                  onRemoveFavorite={removeFavorite}
+                  onAddFavorite={addFavorite}
+                />
+              }
             ></Route>
           </Routes>
         </main>

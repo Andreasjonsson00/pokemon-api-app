@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 @import "tailwindcss";
 
 :root {
@@ -5,22 +6,21 @@
   --secondary-color: blue;
   --header-footer-color: #f0f0f0;
   --text-color: #333333;
+  font-family: "Press Start 2P", cursive;
+  text-align: center;
 }
 
 body {
   background-color: var(--background-color);
   color: var(--text-color);
-  font-family: "Arial", sans-serif;
 }
 
 footer {
   background-color: var(--primary-color);
   color: var(--header-footer-color);
-  text-align: center;
 }
 
 header {
   background-color: var(--secondary-color);
-  text-align: center;
   color: var(--header-footer-color);
 }
