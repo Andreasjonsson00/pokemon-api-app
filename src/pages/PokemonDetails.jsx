@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getPokemonById } from "../api/dataApi";
 
-const PokemonDetails = () => {
+const PokemonDetails = ({ onAddFavorite, onRemoveFavorite }) => {
   const { id } = useParams();
   const [pokemon, setPokemon] = useState(null);
 
@@ -21,9 +21,7 @@ const PokemonDetails = () => {
 
   return (
     <div className="p-5 flex flex-col border rounded-lg bg-white shadow-md mx-16 mt-6">
-      <h1 className="text-2xl font-bold capitalize">
-        {pokemon.name}
-      </h1>
+      <h1 className="text-2xl font-bold capitalize">{pokemon.name}</h1>
 
       <img
         src={pokemon.sprites.front_default}
@@ -31,13 +29,9 @@ const PokemonDetails = () => {
         className="mx-auto w-48 h-48"
       />
 
-      <p className="text-xl">
-        Height: {pokemon.height * 10} cm
-      </p>
+      <p className="text-xl">Height: {pokemon.height * 10} cm</p>
 
-      <p className="text-xl">
-        Weight: {pokemon.weight / 10} kg
-      </p>
+      <p className="text-xl">Weight: {pokemon.weight / 10} kg</p>
       <div className="text-xl">
         <p className="font-bold">Types:</p>
         <div className="flex justify-center gap-2 mt-2">
@@ -49,9 +43,27 @@ const PokemonDetails = () => {
               {t.type.name}
             </span>
           ))}
-          
         </div>
-        
+
+        <div className="flex justify-center gap-2 mt-4">
+          {onAddFavorite && (
+            <button
+              onClick={() => onAddFavorite(pokemon)}
+              className="text-xs hover:underline bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 cursor-pointer"
+            >
+              Add to Favorites
+            </button>
+          )}
+
+          {onRemoveFavorite && (
+            <button
+              onClick={() => onRemoveFavorite(pokemon)}
+              className="text-xs hover:underline bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600 cursor-pointer"
+            >
+              x
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );
