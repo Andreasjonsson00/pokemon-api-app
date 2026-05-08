@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { getAllPokemon } from "../api/dataApi";
 import Pokemon from "../components/Pokemon";
 
-const Home = ({ setFavorites }) => {
+const Home = ({ setFavorites, addFavorite }) => {
   const [pokemon, setPokemon] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -30,13 +30,7 @@ const Home = ({ setFavorites }) => {
     return <p className="text-2xl font-bold mt-8">Error: {error}</p>;
   }
 
-  const addFavorite = (pokemon) => {
-    setFavorites((prev) => {
-      if (prev.find((p) => p.id === pokemon.id)) return prev;
-      return [...prev, pokemon];
-    });
-  };
-
+ 
   return (
     <div>
       <h1 className="text-2xl font-bold my-8">
