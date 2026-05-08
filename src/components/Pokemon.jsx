@@ -4,7 +4,7 @@ import DeleteButton from "./DeleteButton";
 
 const Pokemon = ({ pokemon, onAddFavorite, onRemoveFavorite, children, favorite }) => {
   return (
-    <div className="flex min-h-[360px] w-full max-w-64 flex-col rounded-lg border bg-white p-4 shadow-md transition transform hover:scale-105 hover:shadow-xl">
+    <div className="flex w-full max-w-64 flex-col rounded-lg border bg-white p-4 shadow-md transition transform hover:scale-105 hover:shadow-xl">
       <Link
         to={`/pokemon/${pokemon.id}`}
         className="flex flex-1 flex-col items-center text-center"
