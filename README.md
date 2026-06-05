@@ -2,7 +2,7 @@
 
 [Live Demo](https://pokemon-api-app-two.vercel.app/)
 
-Add your favorite Pokémon, add your own nickname and view detailed information about them.
+Lägg till dina favorit-Pokémon, ge dem egna smeknamn och se detaljerad information om dem.
 
 ## För och efternamn
 
