@@ -4,7 +4,7 @@ import DeleteButton from "./DeleteButton";
 
 const Pokemon = ({ pokemon, onAddFavorite, onRemoveFavorite, children, favorite }) => {
   return (
-    <div className="flex w-full max-w-64 flex-col rounded-lg border bg-white p-4 shadow-md transition transform hover:scale-105 hover:shadow-xl">
+    <div className="flex w-[calc((100%-1rem)/2)] max-w-64 flex-col rounded-lg border bg-white p-3 shadow-md transition transform hover:scale-105 hover:shadow-xl sm:w-full sm:p-4">
       <Link
         to={`/pokemon/${pokemon.id}`}
         className="flex flex-1 flex-col items-center text-center"
@@ -12,7 +12,7 @@ const Pokemon = ({ pokemon, onAddFavorite, onRemoveFavorite, children, favorite 
         <img
           src={pokemon.sprites.front_default}
           alt={pokemon.name}
-          className="w-32 h-32"
+          className="aspect-square w-full max-w-32 object-contain"
         />
         <h2 className="capitalize mt-2 fontscald">{pokemon.name}</h2>
         {pokemon.nickname ? (
